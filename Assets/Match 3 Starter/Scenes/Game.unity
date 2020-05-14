@@ -224,6 +224,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11471292, guid: 6a2e44e682f3ea5469046c0ccfa27945, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 22469296, guid: 6a2e44e682f3ea5469046c0ccfa27945, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

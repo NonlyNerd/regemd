@@ -35,6 +35,8 @@ public class Tile : MonoBehaviour {
 
 	private bool matchFound = false;
 
+	private int rowSize = 2;
+
 	void Awake() {
 		spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -74,7 +76,7 @@ public class Tile : MonoBehaviour {
 		secondSpriteRenderer.sprite = firstSpriteRenderer.sprite;
 		firstSpriteRenderer.sprite = swap;
 
-		if (FindAllMatches() && matchFound) {
+		if (FindAnyMatches() || previousSelected.FindAnyMatches()) {
 			SFXManager.instance.PlaySFX(Clip.Swap);
 			MakeMove();
 		} else {
@@ -131,20 +133,20 @@ public class Tile : MonoBehaviour {
 			matchingTiles.AddRange(FindMatch(paths[i]));
 		}
 
-		if (matchingTiles.Count >= 2) {
+		if (matchingTiles.Count >= rowSize) {
 			matchFound = true;
 		}
 
 		return matchingTiles;
 	}
 
-	private bool FindAllMatches() {
+	public bool FindAnyMatches() {
 		if (spriteRenderer.sprite == null) {
 			return false;
 		}
 
-		bool horizontal = FindMatches(new Vector2[2] { Vector2.left, Vector2.right }).Count > 0;
-		bool vertical = FindMatches(new Vector2[2] { Vector2.up, Vector2.down }).Count > 0;
+		bool horizontal = FindMatches(new Vector2[2] { Vector2.left, Vector2.right }).Count >= rowSize;
+		bool vertical = FindMatches(new Vector2[2] { Vector2.up, Vector2.down }).Count >= rowSize;
 
 		return horizontal || vertical;
 	}

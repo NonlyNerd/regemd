@@ -5,10 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Match 3 Starter/Scenes/Menu.unity
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Match 3 Starter/Scenes/Game.unity
-    guid: 00000000000000000000000000000000
+    path: Assets/Regemd/Scenes/Game.unity
+    guid: 13c4b9a25e714484db0951847e444521
+  - enabled: 1
+    path: Assets/Regemd/Scenes/Menu.unity
+    guid: 808e4492450f3f84c859e099524ef107
   m_configObjects: {}
